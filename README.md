@@ -18,6 +18,7 @@ triality-pipeline/
 ├── master_pipeline_repository.py   # Consolidated entry point: runs the full workspace
 ├── master_pipeline_deployment.py   # Original deployment runner (kept working)
 ├── plot_confusion_matrix.py        # Presentation-grade confusion matrix graphics
+├── plot_cayley_tree.py             # Section 3.1: Cayley tree mapped to sorting zones
 ├── requirements.txt
 ├── .gitignore
 ├── config/                        # Generated outputs (PNG plot, run logs, system specs)
@@ -43,6 +44,12 @@ The consolidated run writes `config/system_specs.json`, logs manifold validation
 synthesizes the 100-node dataset, runs the throughput optimizer, compiles the
 RF pulse schedule, and saves the confusion matrix plot to
 `config/confusion_matrix_plot.png`.
+
+Run the Cayley tree visualization standalone:
+
+```bash
+python3 plot_cayley_tree.py   # saves config/cayley_tree_matrix.png
+```
 
 ## Modules
 
