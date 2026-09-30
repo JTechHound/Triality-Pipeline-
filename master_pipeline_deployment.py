@@ -89,7 +89,7 @@ def execute_master_workspace_run():
     ]
     for trace, carrier_freq_ghz, kind in traces:
         if kind == "cross_resonance":
-            waveform = scheduler.generate_cross_resonance_tone(160.0, carrier_freq_ghz)
+            waveform = scheduler.generate_cross_resonance_tone(160.0, max_amplitude=0.4)
         else:
             waveform = scheduler.generate_gaussian_waveform(40.0, amplitude=0.5)
         config = {"carrier_freq_ghz": carrier_freq_ghz, "samples_count": len(waveform)}

@@ -7,53 +7,57 @@ Core Frameworks Unified: Unified Coherence Theory (UCT) × Triality Framework
 × Fault-Tolerant QCNN × Multi-Terminal Hardware Routing × Empirical
 Bio-Sensory Validation.
 
-Integrates flat-faced manifolds, 3D networks, transmon noise maps,
-QCNN multi-hub routing, and automated performance matrix profiling.
-
 - **Release date:** September 30, 2026
-- **Author Arthur Leroy Jones 
-- **Author of UCT u/Mikey-506
-- **Independant Researcher Abby Davis
+- **Core authors (per source document):** Arthur Leroy Jones, u/Mikey-506, Abby Davis (Lead Research Physicist)
 - **Classification:** Advanced Non-Equilibrium Open Quantum Systems Specification
 
 ## Repository structure
 
 ```
 triality-pipeline/
-├── master_pipeline_deployment.py   # Entry point: runs the full pipeline
+├── master_pipeline_repository.py   # Consolidated entry point: runs the full workspace
+├── master_pipeline_deployment.py   # Original deployment runner (kept working)
 ├── plot_confusion_matrix.py        # Presentation-grade confusion matrix graphics
 ├── requirements.txt
 ├── .gitignore
-├── config/                        # Generated outputs (PNG plot, run log)
+├── config/                        # Generated outputs (PNG plot, run logs, system specs)
 └── src/
     ├── __init__.py
-    ├── manifolds.py        # Module 1: flat-faced stargate manifolds
-    ├── stabilizers.py      # Module 2: calibrated hardware transmon stabilizers
-    ├── routing.py          # Module 3: integrated QCNN multi-hub router
-    └── pulse_scheduler.py  # Module 4: transmon microwave pulse sequencer
+    ├── manifolds.py        # Flat-faced stargate manifolds (+ distributional rim profile)
+    ├── networks.py         # High-dimensional spatial graphs, Von Neumann entropy
+    ├── stabilizers.py      # Calibrated hardware transmon stabilizers
+    ├── routing.py          # Integrated QCNN multi-hub router
+    ├── routing_optimizer.py# Gradient-ascent throughput optimizer
+    └── pulse_scheduler.py  # Transmon microwave pulse sequencer (flat-top CR waves)
 ```
 
 ## Quickstart
 
 ```bash
 pip install -r requirements.txt
-python3 master_pipeline_deployment.py
+python3 master_pipeline_repository.py
 ```
 
-The run logs input data to `config/run_log.json`, prints transmon hardware
-wave profiles and routed channel capacities, and saves the confusion matrix
-plot to `config/confusion_matrix_plot.png`.
+The consolidated run writes `config/system_specs.json`, logs manifold validation,
+synthesizes the 100-node dataset, runs the throughput optimizer, compiles the
+RF pulse schedule, and saves the confusion matrix plot to
+`config/confusion_matrix_plot.png`.
 
 ## Modules
 
 - **Manifolds** — topological boundary conditions for flat-faced manifolds;
-  optimized mass via Cauchy's mean width.
+  optimized mass via Cauchy's formula (π/4 savings factor) plus the
+  distributional rim line-density profile.
+- **Networks** — many-body state tracking; partial-trace bipartite subspace
+  extraction and Von Neumann entropy.
 - **Stabilizers** — transmon decoherence (T1/T2) mapped to error floors, logical
   error evaluation, and zero-noise-limit Richardson extrapolation.
 - **Routing** — 3D hub coordinates routed through shift-invariant QCNN filter
   cells, with a strict 5.0% triality thermalization barrier.
-- **Pulse scheduler** — Gaussian waveforms and cross-resonance drive tones for
-  transmon control lines.
+- **Routing optimizer** — finite-difference gradient ascent over routing weights
+  to maximize global non-classical throughput.
+- **Pulse scheduler** — 20ns Gaussian single-qubit envelopes, 45ns flat-top
+  cross-resonance waves, and RF schedule compilation.
 
 ## Roadmap
 
@@ -66,9 +70,13 @@ Per the source document, candidate next milestones:
 
 ## Provenance note
 
-This repository was reconstructed from the source document
-(`Master_Deployment_Engine_260930_134131_0_b95p.pdf`). The document's code block
-was truncated in two places — the tail of
-`TransmonPulseScheduler.generate_cross_resonance_tone` and the middle of the
-deployment runner — so those sections were rebuilt from the document's outline
-and the full pipeline was executed end to end to validate it.
+This repository was reconstructed from two source documents
+(`Master_Deployment_Engine_260930_134131_0_b95p.pdf` and
+`Complete_code_block_260930_143504_2_uhzm.pdf`). Both stored code as wrapped
+document text, so line-wrapping artifacts were repaired and every entry point
+was executed end to end to validate it. Two sections could not be recovered
+faithfully and were left out: the document's sections 5–6 (a noise-threshold
+cost-matrix / relay-path routing class whose class definition was lost in the
+PDF text extraction). The 45ns flat-top cross-resonance method and the
+consolidated repository runner in this update come from the second document,
+which resolved the earlier truncation.

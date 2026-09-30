@@ -3,4 +3,5 @@ __pycache__/
 .venv/
 config/*.png
 config/run_log.json
+config/system_specs.json
 .DS_Store
