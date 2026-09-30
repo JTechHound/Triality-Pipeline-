@@ -19,6 +19,7 @@ triality-pipeline/
 ├── master_pipeline_deployment.py   # Original deployment runner (kept working)
 ├── plot_confusion_matrix.py        # Presentation-grade confusion matrix graphics
 ├── plot_cayley_tree.py             # Section 3.1: Cayley tree mapped to sorting zones
+├── plot_fidelity_curve.py          # Sections 2.2 & 1.2: fidelity vs phase noise
 ├── requirements.txt
 ├── .gitignore
 ├── config/                        # Generated outputs (PNG plot, run logs, system specs)
@@ -49,6 +50,7 @@ Run the Cayley tree visualization standalone:
 
 ```bash
 python3 plot_cayley_tree.py   # saves config/cayley_tree_matrix.png
+python3 plot_fidelity_curve.py  # saves config/triality_fidelity_curve.png
 ```
 
 ## Modules
