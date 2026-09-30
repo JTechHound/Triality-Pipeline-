@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.venv/
+config/*.png
+config/run_log.json
+.DS_Store
