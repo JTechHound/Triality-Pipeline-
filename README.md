@@ -27,6 +27,7 @@ triality-pipeline/
     ├── networks.py         # High-dimensional spatial graphs, Von Neumann entropy
     ├── stabilizers.py      # Calibrated hardware transmon stabilizers
     ├── routing.py          # Integrated QCNN multi-hub router
+    ├── relay_routing.py    # Dijkstra multi-hop relay around high-noise regions
     ├── routing_optimizer.py# Gradient-ascent throughput optimizer
     └── pulse_scheduler.py  # Transmon microwave pulse sequencer (flat-top CR waves)
 ```
@@ -54,6 +55,9 @@ RF pulse schedule, and saves the confusion matrix plot to
   error evaluation, and zero-noise-limit Richardson extrapolation.
 - **Routing** — 3D hub coordinates routed through shift-invariant QCNN filter
   cells, with a strict 5.0% triality thermalization barrier.
+- **Relay routing** — Dijkstra multi-hop relay protocol; diverts data tracks
+  around high-noise regions, assigning infinite cost to paths above the 5.0%
+  noise threshold.
 - **Routing optimizer** — finite-difference gradient ascent over routing weights
   to maximize global non-classical throughput.
 - **Pulse scheduler** — 20ns Gaussian single-qubit envelopes, 45ns flat-top
@@ -70,13 +74,11 @@ Per the source document, candidate next milestones:
 
 ## Provenance note
 
-This repository was reconstructed from two source documents
-(`Master_Deployment_Engine_260930_134131_0_b95p.pdf` and
-`Complete_code_block_260930_143504_2_uhzm.pdf`). Both stored code as wrapped
-document text, so line-wrapping artifacts were repaired and every entry point
-was executed end to end to validate it. Two sections could not be recovered
-faithfully and were left out: the document's sections 5–6 (a noise-threshold
-cost-matrix / relay-path routing class whose class definition was lost in the
-PDF text extraction). The 45ns flat-top cross-resonance method and the
-consolidated repository runner in this update come from the second document,
-which resolved the earlier truncation.
+This repository was reconstructed from three source documents
+(`Master_Deployment_Engine_260930_134131_0_b95p.pdf`,
+`Complete_code_block_260930_143504_2_uhzm.pdf`, and the follow-up notes text
+file). All stored code as wrapped document text, so line-wrapping artifacts
+were repaired and every entry point was executed end to end to validate it.
+One method (`NonEquilibriumNetwork.extract_bipartite_subspace`) contained a
+real indexing bug that crashed at runtime; it was corrected minimally and the
+fix is marked in the code.
