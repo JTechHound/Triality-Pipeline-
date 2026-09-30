@@ -12,7 +12,7 @@ QCNN multi-hub routing, and automated performance matrix profiling.
 
 - **Release date:** September 30, 2026
 - **Author (per source document):** Arthur Leroy Jones. 
-- Author of UCT u/Mikey-506,
+- Author of UCT u/Mikey-506
 - Independant Researcher Abby Davis
 - **Classification:** Advanced Non-Equilibrium Open Quantum Systems Specification
 
