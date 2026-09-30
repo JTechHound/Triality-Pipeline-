@@ -11,7 +11,9 @@ Integrates flat-faced manifolds, 3D networks, transmon noise maps,
 QCNN multi-hub routing, and automated performance matrix profiling.
 
 - **Release date:** September 30, 2026
-- **Core authors (per source document):** Arthur Leroy Jones, u/Mikey-506, Abby Davis
+- **Author (per source document):** Arthur Leroy Jones. 
+- Author of UCT u/Mikey-506,
+- Independant Researcher Abby Davis
 - **Classification:** Advanced Non-Equilibrium Open Quantum Systems Specification
 
 ## Repository structure
