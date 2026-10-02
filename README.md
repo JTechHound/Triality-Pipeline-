@@ -33,6 +33,7 @@ triality-pipeline/
     ├── routing_optimizer.py# Gradient-ascent throughput optimizer
     ├── pulse_scheduler.py  # Transmon microwave pulse sequencer (flat-top CR waves)
     └── simulation_runtime.py # Classical qudit simulation runtime (statevector/MPS/Lindblad)
+    └── export_proof.py       # Fail-closed export proof blocks (CCT v3.0 pattern)
 ```
 
 ## Quickstart
@@ -78,6 +79,11 @@ python3 plot_fidelity_curve.py  # saves config/triality_fidelity_curve.png
   evolution with SVD compression and discarded-weight accounting, Lindblad
   RK4 open-system dynamics, fidelity/truncation metrics, phi-weighted SVD
   ablation, and memmap tensor views.
+- **Export proof** — fail-closed proof blocks ported from CCT v3.0: named
+  check bits (capacity, bounds, round-trip, provenance) that block the
+  write and name the failing bit; SHA-256 hash preimage over parameters
+  plus tamper-evident record hash; checks.json sidecars; a spec registry
+  for uncomputed names (strings only, numerics forbidden).
 
 ## Roadmap
 
