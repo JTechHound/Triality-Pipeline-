@@ -1,0 +1,4 @@
+numpy
+scipy
+# pyvisa is optional: only required when use_mock_hardware=False
+# pyvisa
