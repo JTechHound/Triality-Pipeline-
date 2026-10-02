@@ -31,7 +31,8 @@ triality-pipeline/
     ├── routing.py          # Integrated QCNN multi-hub router
     ├── relay_routing.py    # Dijkstra multi-hop relay around high-noise regions
     ├── routing_optimizer.py# Gradient-ascent throughput optimizer
-    └── pulse_scheduler.py  # Transmon microwave pulse sequencer (flat-top CR waves)
+    ├── pulse_scheduler.py  # Transmon microwave pulse sequencer (flat-top CR waves)
+    └── simulation_runtime.py # Classical qudit simulation runtime (statevector/MPS/Lindblad)
 ```
 
 ## Quickstart
@@ -71,6 +72,12 @@ python3 plot_fidelity_curve.py  # saves config/triality_fidelity_curve.png
   to maximize global non-classical throughput.
 - **Pulse scheduler** — 20ns Gaussian single-qubit envelopes, 45ns flat-top
   cross-resonance waves, and RF schedule compilation.
+- **Simulation runtime** — classical qudit simulator implementing the FHUP
+  Enhancement Protocol runtime spec (items 1–30): memory bounds and capacity
+  cards with kill tests, Weyl–Heisenberg operators, statevector/MPS
+  evolution with SVD compression and discarded-weight accounting, Lindblad
+  RK4 open-system dynamics, fidelity/truncation metrics, phi-weighted SVD
+  ablation, and memmap tensor views.
 
 ## Roadmap
 
