@@ -36,6 +36,7 @@ triality-pipeline/
     ├── pulse_scheduler.py  # Transmon microwave pulse sequencer (flat-top CR waves)
     └── simulation_runtime.py # Classical qudit simulation runtime (statevector/MPS/Lindblad)
     └── export_proof.py       # Fail-closed export proof blocks (CCT v3.0 pattern)
+    └── surface_code_decoder.py # Distance-3 surface-code syndrome decoder [RECONSTRUCTED]
 ```
 
 ## Quickstart
