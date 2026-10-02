@@ -8,7 +8,9 @@ Core Frameworks Unified: Unified Coherence Theory (UCT) × Triality Framework
 Bio-Sensory Validation.
 
 - **Release date:** September 30, 2026
-- **Core authors (per source document):** Arthur Leroy Jones, u/Mikey-506, Abby Davis (Independant Researcher)
+# Authors - Arthur Leroy Jones
+# Author UCT Theory - Mikey-506
+# Independent Researcher - Abby Davis
 - **Classification:** Advanced Non-Equilibrium Open Quantum Systems Specification
 
 ## Repository structure
