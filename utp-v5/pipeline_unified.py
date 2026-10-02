@@ -366,7 +366,11 @@ class MPSMogopsOptimizer:
         self.X = np.array([[0.0, 1.0], [1.0, 0.0]], dtype=complex)
         self.Z = np.array([[1.0, 0.0], [0.0, -1.0]], dtype=complex)
 
-    def evaluate_qfi(self, theta, phi):
+    def evaluate_qfi_proxy(self, theta, phi):
+        """ILLUSTRATIVE PROXY (v5.2-rev4 §3.1): state-independent
+        geometric optimization surface surrogate — a hardcoded
+        baseline benchmark, not an analytical first-principles
+        discovery."""
         return float(np.abs(np.sin(2 * theta) * np.cos(2 * phi)) + 0.1)
 
     def apply_local_filter_and_compress(self, two_site_tensor, theta, phi):
@@ -389,7 +393,7 @@ class MPSMogopsOptimizer:
 
     def evaluate_mogops_metrics_mps(self, theta, phi, physical_noise,
                                     two_site_tensor):
-        qfi = self.evaluate_qfi(theta, phi)
+        qfi = self.evaluate_qfi_proxy(theta, phi)
         s_spectrum, truncated_deficit = self.apply_local_filter_and_compress(
             two_site_tensor, theta, phi)
         truncation_entropy = 0.0
@@ -399,6 +403,9 @@ class MPSMogopsOptimizer:
                 truncation_entropy -= lam_sq * np.log2(lam_sq)
         drift_cost = self.gamma_residue * \
             np.exp(truncated_deficit / self.gamma_residue) * (np.sin(theta) ** 2)
+        # BENCHMARK CONFIGURATION (v5.2-rev4 §1): 0.93 is a hardcoded
+        # baseline benchmark injected via the mock telemetry framework,
+        # not an analytical first-principles discovery.
         discord = 0.93 * (1.0 - truncated_deficit)
         if physical_noise > self.sigma_max:
             discord *= (self.sigma_max / physical_noise)
@@ -478,6 +485,10 @@ class TDAPersistentHomologyLayer:
         return dist_matrix
 
     def extract_persistent_features(self, node_coordinates, physical_noise):
+        """ILLUSTRATIVE PROXY (v5.2-rev4 §3.1): geometric shortcut
+        filtration modeling simulator — approximates spatial shortcut
+        lifetimes under simulated noise loads. Not an active homology
+        identifier."""
         dist_matrix = self.compute_euclidean_distance_matrix(node_coordinates)
         num_nodes = len(node_coordinates)
         noise_drift = -0.25 * (physical_noise / self.sigma_max) \
@@ -569,6 +580,9 @@ class MultiTerminalGeodesicMultiplexer:
 # The "inverse" check is non-vacuous: it binds beta (derived from the
 # membrane metric) against an externally supplied analytical entropy-leak
 # value, and fails closed on mismatch.
+# (v5.2-rev4 §3.2 relabels this layer an "internal schema consistency
+# check" — the implementation below already is exactly that: it validates
+# caller-supplied parameters against structural data-layout constraints.)
 # [REPAIRED: __init__ dunder; hexdigest() line-break rejoined]
 # ===========================================================================
 class TrialityPipelineParser:
@@ -841,7 +855,7 @@ class AdamTriadicGradientOptimizer:
 if __name__ == "__main__":
     np.random.seed(HARNESS_SEED)  # deterministic harness
     print("=" * 70)
-    print("UNIFIED TRIALITY PIPELINE EXECUTION LIFECYCLE - VERSION 5.1")
+    print("UNIFIED TRIALITY PIPELINE EXECUTION LIFECYCLE - VERSION 5.2-rev4")
     print("=" * 70)
 
     # Test 1: MPS Compression Soundness
