@@ -34,9 +34,14 @@ triality-pipeline/
     ├── relay_routing.py    # Dijkstra multi-hop relay around high-noise regions
     ├── routing_optimizer.py# Gradient-ascent throughput optimizer
     ├── pulse_scheduler.py  # Transmon microwave pulse sequencer (flat-top CR waves)
-    └── simulation_runtime.py # Classical qudit simulation runtime (statevector/MPS/Lindblad)
-    └── export_proof.py       # Fail-closed export proof blocks (CCT v3.0 pattern)
-    └── surface_code_decoder.py # Distance-3 surface-code syndrome decoder [RECONSTRUCTED]
+    ├── simulation_runtime.py # Classical qudit simulation runtime (statevector/MPS/Lindblad)
+    ├── export_proof.py       # Fail-closed export proof blocks (CCT v3.0 pattern)
+    ├── surface_code_decoder.py # Distance-3 surface-code syndrome decoder [RECONSTRUCTED]
+    ├── triality_automorphism.py # S3 outer automorphism of D4 (the computed "3")
+    ├── visualize_triality.py # Renders the triality figure (8-sets, Dynkin, S3)
+    └── guards.py             # CoherenceGuard + GoodhartGuard
+├── TRIALITY_3_WRITEUP.md     # The computed "3" of 3-6-9: D4 triality write-up
+├── GUARDS_WRITEUP.md         # CoherenceGuard + GoodhartGuard write-up
 ```
 
 ## Quickstart
@@ -87,6 +92,19 @@ python3 plot_fidelity_curve.py  # saves config/triality_fidelity_curve.png
   write and name the failing bit; SHA-256 hash preimage over parameters
   plus tamper-evident record hash; checks.json sidecars; a spec registry
   for uncomputed names (strings only, numerics forbidden).
+
+- **Triality automorphism** — the "3" of 3-6-9 made explicit and
+  computable: the three phases are the three 8-dimensional representations
+  of Spin(8) (8v vector, 8s spinor, 8c conjugate spinor), permuted by the S3
+  outer automorphism of D4 (8v → 8c → 8s → 8v). All checks pass; the figure
+  generator renders the three 8-sets, the D4 Dynkin diagram, and the S3
+  action.
+- **Guards** — two watchers for self-optimizing systems (concepts from
+  Mikey's Sophia stack, implementations new). CoherenceGuard: phase-lock
+  integrity (phase deviation, lock erosion, winding-number check as discrete
+  DμC = 0). GoodhartGuard: rejects optimizer actions that improve the
+  primary metric by degrading guard metrics — "when a measure becomes a
+  target, it ceases to be a good measure," enforced in code.
 
 ## Roadmap
 
